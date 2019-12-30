@@ -11,8 +11,6 @@ with
   # =>
   # get :show, xhr: true, params: { id: user.id }, flash: { notice: 'Welcome' }, session: { admin: user.admin? }.
   within_files '{test,spec}/{functional,controllers}/**/*.rb' do
-    #%w(get post put patch delete).each do |message|
-    message = 'xhr'
     with_node type: 'send', message: 'xhr' do
       def make_up_hash_pair(key, argument_node)
         if argument_node.to_source != 'nil'
@@ -37,6 +35,5 @@ with
         end
       end
     end
-    #end
   end
 end
